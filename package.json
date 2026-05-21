@@ -1,0 +1,34 @@
+{
+  "name": "kineticgain-vendor-inspector",
+  "version": "0.1.0",
+  "description": "Browser extension + Greasemonkey userscript that score what AI governance documents any vendor publishes at /.well-known/ — the eleven Kinetic Gain Protocol Suite specs.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-userscript.mjs",
+    "check": "node scripts/build-userscript.mjs --check",
+    "lint": "node --check shared/well-known-probe.js && node --check extension/popup.js && node --check userscript/badge.js && node --check scripts/build-userscript.mjs",
+    "test": "node --test"
+  },
+  "keywords": [
+    "browser-extension",
+    "userscript",
+    "greasemonkey",
+    "tampermonkey",
+    "manifest-v3",
+    "ai-governance",
+    "well-known",
+    "kinetic-gain-protocol-suite",
+    "vendor-disclosure"
+  ],
+  "author": "Miz Causevic <miz@kineticgain.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizcausevic-dev/kineticgain-vendor-inspector.git"
+  },
+  "homepage": "https://suite.kineticgain.com/"
+}

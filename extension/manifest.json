@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Vendor AI Disclosure Inspector",
+  "version": "0.1.0",
+  "description": "See what AI governance documents any vendor publishes at /.well-known/ — the eleven Kinetic Gain Protocol Suite specs, scored 0-100, right from your toolbar.",
+  "homepage_url": "https://suite.kineticgain.com/",
+  "action": {
+    "default_title": "Inspect this site's AI disclosure",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "tabs"],
+  "host_permissions": ["https://*/*"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vendor-inspector@kineticgain.com",
+      "strict_min_version": "121.0"
+    }
+  }
+}

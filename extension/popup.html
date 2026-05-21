@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="hd">
+    <span class="hd-mark" aria-hidden="true">⟁</span>
+    <div class="hd-text">
+      <strong>Vendor AI Disclosure Inspector</strong>
+      <small id="domain">…</small>
+    </div>
+  </header>
+
+  <section class="score-band" id="scoreBand">
+    <div class="score-num" id="scoreNum">—</div>
+    <div class="score-meta">
+      <div class="score-tier" id="scoreTier">probing…</div>
+      <div class="score-sub" id="scoreSub">checking 11 well-known paths</div>
+    </div>
+  </section>
+
+  <ul class="spec-list" id="specList"></ul>
+
+  <footer class="ft">
+    <a id="learnMore" href="https://suite.kineticgain.com/" target="_blank" rel="noreferrer">What is this?</a>
+    <button id="copyBtn" type="button">Copy report</button>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

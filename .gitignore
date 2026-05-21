@@ -1,0 +1,9 @@
+node_modules/
+*.log
+.DS_Store
+.vscode/
+.idea/
+.claude/
+# NOTE: dist/ and extension/well-known-probe.js are committed build artifacts
+# (so the userscript + unpacked extension work without a build step). CI's
+# `npm run check` keeps them in sync with shared/well-known-probe.js.

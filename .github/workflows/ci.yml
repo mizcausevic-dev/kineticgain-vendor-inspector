@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["18", "20", "22", "24"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Syntax check all source
+        run: npm run lint
+
+      - name: Verify committed build artifacts are in sync with shared core
+        run: npm run check
+
+      - name: Test
+        run: npm test
+
+  validate-manifest:
+    name: validate MV3 manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: manifest.json is valid JSON + MV3
+        run: |
+          node -e "const m=require('./extension/manifest.json'); if(m.manifest_version!==3){console.error('not MV3');process.exit(1)}; if(!m.action||!m.action.default_popup){console.error('no popup');process.exit(1)}; console.log('OK: MV3 manifest valid, popup =', m.action.default_popup)"
