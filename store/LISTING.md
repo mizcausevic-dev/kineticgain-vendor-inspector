@@ -1,0 +1,117 @@
+# Store listing copy — Vendor AI Disclosure Inspector v0.2.0
+
+Reference copy for the three distribution channels. Paste these into each
+dashboard at submission time. Assets live alongside this file:
+
+- `../extension/icons/128.png` — store icon (also 16/32/48 for the manifest)
+- `screenshot-1280x800.png` — primary marketing screenshot (Chrome wants 1280×800 or 640×400)
+
+---
+
+## Chrome Web Store
+
+**Name:** Vendor AI Disclosure Inspector
+
+**Summary (132 char max):**
+> See which AI-governance documents any vendor publishes at /.well-known/ — 11 Kinetic Gain Suite specs, scored 0–100, from your toolbar.
+
+**Category:** Developer Tools
+
+**Language:** English
+
+**Detailed description:**
+> Ever wonder whether the AI vendor you're evaluating actually publishes its
+> governance posture? This extension tells you in one click.
+>
+> When you click the toolbar icon, the Vendor AI Disclosure Inspector probes
+> the current site's `/.well-known/` endpoints for the eleven open
+> specifications in the Kinetic Gain Protocol Suite — AEO Protocol, Agent
+> Cards, Prompt Provenance, AI Evidence Format, MCP Tool Cards, AI Tutor
+> Cards, Student AI Disclosure, Classroom AI AUP, Clinical AI Disclosure, AI
+> Incident Cards, and Procurement Decision records — and shows you, at a
+> glance:
+>
+> • A 0–100 transparency score and tier (none → comprehensive)
+> • A green/red checklist of exactly what the vendor publishes and what's missing
+> • A one-click, copy-to-clipboard report you can paste into a procurement review
+>
+> No account. No sign-up. Nothing is collected or transmitted anywhere — the
+> extension only reads the public well-known documents of the tab you're
+> actively looking at, and renders the result locally in the popup.
+>
+> Learn more about the open specifications at https://suite.kineticgain.com/
+
+**Single purpose (required):**
+> Probe the active tab's domain for the eleven Kinetic Gain Protocol Suite
+> `/.well-known/` AI-governance documents and display a transparency score and
+> per-spec breakdown in the popup.
+
+**Permission justifications:**
+- `activeTab` — Read the hostname of the tab the user explicitly clicks the
+  action on, so the extension knows which domain to probe.
+- `tabs` — Resolve the active tab's URL/hostname for the probe target.
+- `host_permissions: https://*/*` — Issue GET requests to the active domain's
+  `/.well-known/` JSON documents. The extension never reads page content; it
+  only fetches the public well-known files of the domain being inspected.
+
+**Data usage disclosures (all "No"):**
+- Does not collect or use personally identifiable information.
+- Does not collect health, financial, authentication, personal communications,
+  location, web history, or user activity data.
+- No data is sold or transferred. No remote code. Everything runs locally.
+
+---
+
+## Firefox Add-ons (AMO)
+
+Gecko ID already set in the manifest: `vendor-inspector@kineticgain.com`
+(min version 121.0). The same zip works as the AMO upload.
+
+**Summary:**
+> One-click check of which AI-governance documents a site publishes at
+> /.well-known/ — eleven Kinetic Gain Suite specs, scored 0–100.
+
+**Description:** (same as the Chrome detailed description above)
+
+**Notes for AMO reviewers:**
+> Pure client-side extension, no build step required to review — the source in
+> the zip is the source that runs. The probe core is
+> `well-known-probe.js` (a verbatim copy of `shared/well-known-probe.js` from
+> the repo, kept in sync by `scripts/build-userscript.mjs --check` in CI). The
+> popup fetches only `/.well-known/*.json` documents from the active tab's
+> domain and renders the result locally. No analytics, no remote code, no data
+> exfiltration. Source + CI: https://github.com/mizcausevic-dev/kineticgain-vendor-inspector
+
+**License:** MIT
+
+---
+
+## greasyfork.org (userscript)
+
+Upload `../dist/kineticgain-inspector.user.js`. The `==UserScript==` header
+already carries name, namespace, version, description, icon, homepageURL,
+supportURL, match, grant (none), run-at, and license.
+
+**Additional info (markdown):**
+> Injects a small corner badge on every site you visit showing a 0–100 score
+> for which of the eleven Kinetic Gain Protocol Suite AI-governance documents
+> that site publishes at `/.well-known/`. Zero permissions beyond the page it
+> runs on (`@grant none`), no data collected. The browser-extension twin
+> (Chrome/Firefox) is in the same repo. Learn more:
+> https://suite.kineticgain.com/
+
+Mirror to **openuserjs.org** with the same file.
+
+---
+
+## Manual submission checklist (Miz — needs your accounts)
+
+- [ ] **Chrome Web Store** — pay the one-time $5 developer registration (if not
+      already), upload `kineticgain-vendor-inspector-chrome-v0.2.0.zip`, paste
+      the copy above, add `screenshot-1280x800.png`, submit for review.
+- [ ] **Firefox AMO** — sign in at addons.mozilla.org, upload
+      `kineticgain-vendor-inspector-firefox-v0.2.0.zip`, paste copy + reviewer
+      notes, submit.
+- [ ] **greasyfork.org** — sign in (GitHub OAuth), "Post script", paste the
+      `.user.js`, paste the markdown above.
+- [ ] **openuserjs.org** — same file, optional second mirror.

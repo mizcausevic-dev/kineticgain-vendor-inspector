@@ -1,6 +1,6 @@
 {
   "name": "kineticgain-vendor-inspector",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Browser extension + Greasemonkey userscript that score what AI governance documents any vendor publishes at /.well-known/ — the eleven Kinetic Gain Protocol Suite specs.",
   "type": "module",
   "private": true,

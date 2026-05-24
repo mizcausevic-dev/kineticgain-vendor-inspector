@@ -45,7 +45,7 @@ Score = published / 11, mapped to a tier: **comprehensive** (≥90) · **strong*
 1. Steps 1-2 above
 2. Firefox → `about:debugging#/runtime/this-firefox` → **Load Temporary Add-on** → select `extension/manifest.json`
 
-> Branded icons are intentionally omitted from v0.1 (the browser shows a default). Add `extension/icons/{16,48,128}.png` + an `action.default_icon` block before submitting to the stores.
+> **v0.2** adds branded icons (`extension/icons/{16,32,48,128}.png`, wired into the manifest) and store-submission assets under [`store/`](store/) — listing copy, a 1280×800 marketing screenshot, and the manual upload checklist. Packaged upload zips are produced outside the repo.
 
 ## Install — userscript
 

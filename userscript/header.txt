@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Vendor AI Disclosure Inspector
 // @namespace    https://kineticgain.com/
-// @version      0.1.0
+// @version      0.2.0
 // @description  Shows a corner badge on every site scoring what AI governance documents it publishes at /.well-known/ — the eleven Kinetic Gain Protocol Suite specs.
 // @author       Miz Causevic
+// @icon         https://raw.githubusercontent.com/mizcausevic-dev/kineticgain-vendor-inspector/main/extension/icons/128.png
 // @homepageURL  https://suite.kineticgain.com/
 // @supportURL   https://github.com/mizcausevic-dev/kineticgain-vendor-inspector/issues
 // @match        *://*/*
