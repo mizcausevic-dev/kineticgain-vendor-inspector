@@ -7,7 +7,8 @@
   "scripts": {
     "build": "node scripts/build-userscript.mjs",
     "check": "node scripts/build-userscript.mjs --check",
-    "lint": "node --check shared/well-known-probe.js && node --check extension/popup.js && node --check userscript/badge.js && node --check scripts/build-userscript.mjs",
+    "package": "node scripts/package-extension.mjs --verify",
+    "lint": "node --check shared/well-known-probe.js && node --check extension/popup.js && node --check userscript/badge.js && node --check scripts/build-userscript.mjs && node --check scripts/package-extension.mjs",
     "test": "node --test"
   },
   "keywords": [
