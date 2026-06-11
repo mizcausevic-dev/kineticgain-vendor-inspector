@@ -15,9 +15,9 @@ jobs:
       matrix:
         node: ["18", "20", "22", "24"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
 
@@ -34,7 +34,7 @@ jobs:
     name: validate MV3 manifest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: manifest.json is valid JSON + MV3
         run: |
           node -e "const m=require('./extension/manifest.json'); if(m.manifest_version!==3){console.error('not MV3');process.exit(1)}; if(!m.action||!m.action.default_popup){console.error('no popup');process.exit(1)}; console.log('OK: MV3 manifest valid, popup =', m.action.default_popup)"
